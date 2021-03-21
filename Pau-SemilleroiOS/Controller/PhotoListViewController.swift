@@ -13,7 +13,8 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
     
     var photoManager = PhotoManager()
     
-    var photoPairArray: [PhotoData] = []
+    var evenIdPhotoArray: [PhotoData] = []
+    var position: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,9 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
     
     func takeAllPhotos(photos: [PhotoData]) {
         
-        for item in 0..<50 {
+        for item in 0..<photos.count {
             if (photos[item].id % 2 == 0) {
-                photoPairArray.append(photos[item])
+                evenIdPhotoArray.append(photos[item])
             }
         }
         
@@ -43,6 +44,7 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
         }
         
     }
+    
 
 }
 
@@ -51,14 +53,14 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
 extension PhotoListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoPairArray.count
+        return evenIdPhotoArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PhotoCell
         
-        cell.idLabel.text = String(photoPairArray[indexPath.row].id)
-        cell.titleLabel.text = photoPairArray[indexPath.row].title
+        cell.idLabel.text = String(evenIdPhotoArray[indexPath.row].id)
+        cell.titleLabel.text = evenIdPhotoArray[indexPath.row].title
         
         return cell
         
@@ -72,6 +74,22 @@ extension PhotoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        position = indexPath.row
+        performSegue(withIdentifier: "goToDetail", sender: self)
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetail" {
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.photo = String(evenIdPhotoArray[position].id)
+            destinationVC.album = String(evenIdPhotoArray[position].albumId)
+            destinationVC.titlee = evenIdPhotoArray[position].title
+            destinationVC.url = evenIdPhotoArray[position].url
+            destinationVC.thumbnail = evenIdPhotoArray[position].thumbnailUrl
+            
+        }
     }
     
 }
