@@ -7,39 +7,58 @@
 
 import UIKit
 
-class PhotoListViewController: UIViewController {
+class PhotoListViewController: UIViewController, PhotoManagerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var photos: [Photo] = [
-        Photo(albumId: 1, id: 1, title: "album 1 con id 1", url: "jhfkjfhkfjhdksfj", thumbnailUrl: "djfhfjhdkjf"),
-        Photo(albumId: 1, id: 2, title: "album 1 con id 2", url: "dkfhdfjdfhdkj", thumbnailUrl: "lkjlfkjd"),
-        Photo(albumId: 6, id: 4, title: "album 6 con id 4", url: "kjlkgjldfkjlf", thumbnailUrl: "kjlkfjñdlkññsñsdj")
-    ]
+    var photoManager = PhotoManager()
+    
+    var photoPairArray: [PhotoData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoManager.delegate = self
+        photoManager.performRequest()
         
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+
+    }
+
+    //MARK: - Data Manipulation Method
+    
+    func takeAllPhotos(photos: [PhotoData]) {
+        
+        for item in 0..<50 {
+            if (photos[item].id % 2 == 0) {
+                photoPairArray.append(photos[item])
+            }
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
     }
 
 }
 
+//MARK: - TableView Datasource Methods
+
 extension PhotoListViewController: UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
+        return photoPairArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! PhotoCell
-        cell.idLabel.text = String(photos[indexPath.row].id)
-        cell.titleLabel.text = photos[indexPath.row].title
+        
+        cell.idLabel.text = String(photoPairArray[indexPath.row].id)
+        cell.titleLabel.text = photoPairArray[indexPath.row].title
         
         return cell
         
@@ -47,10 +66,12 @@ extension PhotoListViewController: UITableViewDataSource {
     
 }
 
+//MARK: - TableView Delegate Methods
+
 extension PhotoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        
     }
     
 }

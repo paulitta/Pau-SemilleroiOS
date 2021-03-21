@@ -1,13 +1,13 @@
 //
-//  Photo.swift
+//  PhotoData.swift
 //  Pau-SemilleroiOS
 //
-//  Created by Paula Montero on 19/03/2021.
+//  Created by Paula Montero on 20/03/2021.
 //
 
 import Foundation
 
-struct Photo {
+struct PhotoData: Decodable {
     let albumId: Int
     let id: Int
     let title: String
