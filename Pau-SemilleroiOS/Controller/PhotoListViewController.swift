@@ -77,7 +77,6 @@ extension PhotoListViewController: UITableViewDelegate {
         position = indexPath.row
         performSegue(withIdentifier: "goToDetail", sender: self)
         
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,8 +85,9 @@ extension PhotoListViewController: UITableViewDelegate {
             destinationVC.photo = String(evenIdPhotoArray[position].id)
             destinationVC.album = String(evenIdPhotoArray[position].albumId)
             destinationVC.titlee = evenIdPhotoArray[position].title
-            destinationVC.url = evenIdPhotoArray[position].url
+            destinationVC.urlString = evenIdPhotoArray[position].url
             destinationVC.thumbnail = evenIdPhotoArray[position].thumbnailUrl
+            destinationVC.urlK = URL(string: evenIdPhotoArray[position].url)
             
         }
     }

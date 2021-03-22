@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041C7B7F94C35878A407CADD /* Pods_Pau_SemilleroiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3963C9CC4DF0C0EDE14286A5 /* Pods_Pau_SemilleroiOS.framework */; };
 		97421AF9260418FC000FFFB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97421AF8260418FC000FFFB4 /* AppDelegate.swift */; };
 		97421AFB260418FC000FFFB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97421AFA260418FC000FFFB4 /* SceneDelegate.swift */; };
 		97421AFD260418FC000FFFB4 /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97421AFC260418FC000FFFB4 /* PhotoListViewController.swift */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3963C9CC4DF0C0EDE14286A5 /* Pods_Pau_SemilleroiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pau_SemilleroiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63FBF3E892D67065881A4E16 /* Pods-Pau-SemilleroiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pau-SemilleroiOS.debug.xcconfig"; path = "Target Support Files/Pods-Pau-SemilleroiOS/Pods-Pau-SemilleroiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		97421AF5260418FC000FFFB4 /* Pau-SemilleroiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pau-SemilleroiOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97421AF8260418FC000FFFB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97421AFA260418FC000FFFB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		977CDDDE2605905C00884126 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		97A1E022260696420029B5B2 /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		97A1E0252606B2210029B5B2 /* PhotoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoData.swift; sourceTree = "<group>"; };
+		CDBD177D90D33B2B948B5A05 /* Pods-Pau-SemilleroiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pau-SemilleroiOS.release.xcconfig"; path = "Target Support Files/Pods-Pau-SemilleroiOS/Pods-Pau-SemilleroiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,12 +45,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041C7B7F94C35878A407CADD /* Pods_Pau_SemilleroiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8BFFB63524FB53D1E8738567 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63FBF3E892D67065881A4E16 /* Pods-Pau-SemilleroiOS.debug.xcconfig */,
+				CDBD177D90D33B2B948B5A05 /* Pods-Pau-SemilleroiOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		973243A42604505000EC45E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +95,8 @@
 			children = (
 				97421AF7260418FC000FFFB4 /* Pau-SemilleroiOS */,
 				97421AF6260418FC000FFFB4 /* Products */,
+				8BFFB63524FB53D1E8738567 /* Pods */,
+				CE327698AFD24B23288461E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +123,14 @@
 			path = "Pau-SemilleroiOS";
 			sourceTree = "<group>";
 		};
+		CE327698AFD24B23288461E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3963C9CC4DF0C0EDE14286A5 /* Pods_Pau_SemilleroiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97421B0926041900000FFFB4 /* Build configuration list for PBXNativeTarget "Pau-SemilleroiOS" */;
 			buildPhases = (
+				9324AA4F4F6D45992244C65E /* [CP] Check Pods Manifest.lock */,
 				97421AF1260418FC000FFFB4 /* Sources */,
 				97421AF2260418FC000FFFB4 /* Frameworks */,
 				97421AF3260418FC000FFFB4 /* Resources */,
+				939A65453B1A5522453798A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +198,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9324AA4F4F6D45992244C65E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pau-SemilleroiOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		939A65453B1A5522453798A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pau-SemilleroiOS/Pods-Pau-SemilleroiOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pau-SemilleroiOS/Pods-Pau-SemilleroiOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pau-SemilleroiOS/Pods-Pau-SemilleroiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		97421AF1260418FC000FFFB4 /* Sources */ = {
@@ -327,6 +396,7 @@
 		};
 		97421B0A26041900000FFFB4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63FBF3E892D67065881A4E16 /* Pods-Pau-SemilleroiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -346,6 +416,7 @@
 		};
 		97421B0B26041900000FFFB4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDBD177D90D33B2B948B5A05 /* Pods-Pau-SemilleroiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

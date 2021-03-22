@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
@@ -14,13 +15,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var urlLabel: UILabel!
     @IBOutlet weak var thumbnailUrlLabel: UILabel!
+    @IBOutlet weak var urlImageView: UIImageView!
     
     var photo: String?
     var album: String?
     var titlee: String?
-    var url: String?
+    var urlString: String?
     var thumbnail: String?
-    
+    var urlK: URL?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +31,9 @@ class DetailViewController: UIViewController {
         photoIdLabel.text = photo
         albumIdLabel.text = album
         titleLabel.text = titlee
-        urlLabel.text = url
+        urlLabel.text = urlString
         thumbnailUrlLabel.text = thumbnail
+        urlImageView.kf.setImage(with: urlK)
         
     }
 
