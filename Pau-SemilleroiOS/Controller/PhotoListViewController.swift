@@ -15,6 +15,7 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
     
     var evenIdPhotoArray: [PhotoData] = []
     var position: Int = 0
+    var index: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,13 @@ class PhotoListViewController: UIViewController, PhotoManagerDelegate {
         tableView.delegate = self
         
         tableView.register(UINib(nibName: "PhotoCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-
+        
+        tableView.backgroundView = UIImageView(image: UIImage(named: "background_1.png"))
+ 
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tableView.deselectRow(at: index!, animated: true)
     }
 
     //MARK: - Data Manipulation Method
@@ -74,6 +81,7 @@ extension PhotoListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        index = indexPath
         position = indexPath.row
         performSegue(withIdentifier: "goToDetail", sender: self)
         

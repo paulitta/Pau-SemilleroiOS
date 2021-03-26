@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,7 +58,6 @@
 				63FBF3E892D67065881A4E16 /* Pods-Pau-SemilleroiOS.debug.xcconfig */,
 				CDBD177D90D33B2B948B5A05 /* Pods-Pau-SemilleroiOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
